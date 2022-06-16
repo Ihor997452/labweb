@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import dayjs from "dayjs";
+import {DatePicker} from "./components/DatePicker/DatePicker";
 
 function App() {
+  const [date, setDate] = useState([dayjs()]);
+
+  // possible types 'single', 'multiple', 'range'
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="app__container">
+        <div>
+            <DatePicker type={'range'} selectedDate={date} onChange={setDate} />
+        </div>
+      </div>
   );
 }
 
